@@ -11,7 +11,7 @@ def test_alarm_trigger_low():
     
     assert alarm is not None
     assert alarm.alarm_type == "LOW"
-    assert manager.active_alarms["Temperature"] == "LOW"
+    assert manager.active_alarms["Temperature"] == "ALARM_LOW"
 
 def test_alarm_deduplication():
     manager = AlarmManager()
@@ -31,7 +31,7 @@ def test_alarm_reset():
     reading_ok = SensorReading(sensor_name="Temperature", value=25.0, timestamp=datetime.now(), status="OK")
     
     manager.check_reading(reading_low)
-    assert manager.active_alarms["Temperature"] == "LOW"
+    assert manager.active_alarms["Temperature"] == "ALARM_LOW"
     
     manager.check_reading(reading_ok)
     assert manager.active_alarms["Temperature"] is None

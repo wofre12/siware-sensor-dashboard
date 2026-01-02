@@ -3,3 +3,9 @@ presentation.md
 *.pptx
 *.mp4
 "~$*.pptx"
+demo_notes.md
+logs/
+*.log
+__pycache__/
+*.pyc
+.pytest_cache/
